@@ -26,7 +26,7 @@ This MCP server provides tools for interacting with CrowdStrike Falcon's securit
 
 ```bash
 # Clone the repository
-git clone <your-repo-url>
+git clone https://github.com/Prank1004/crowdstrike-falcon-mcp.git
 cd crowdstrike-falcon-mcp
 
 # Install dependencies

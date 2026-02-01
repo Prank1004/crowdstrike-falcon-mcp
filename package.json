@@ -19,8 +19,16 @@
     "security",
     "model-context-protocol"
   ],
-  "author": "",
+  "author": "Prank1004",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Prank1004/crowdstrike-falcon-mcp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Prank1004/crowdstrike-falcon-mcp/issues"
+  },
+  "homepage": "https://github.com/Prank1004/crowdstrike-falcon-mcp#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.0.4"
   },

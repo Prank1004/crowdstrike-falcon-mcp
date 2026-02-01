@@ -1,10 +1,37 @@
 # CrowdStrike Falcon MCP Server
 
-A Model Context Protocol (MCP) server for integrating CrowdStrike Falcon API with Claude and other MCP-compatible clients.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D18.0.0-brightgreen)](https://nodejs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-blue)](https://www.typescriptlang.org/)
+
+A Model Context Protocol (MCP) server for integrating CrowdStrike Falcon API with Claude and other MCP-compatible clients. Enables natural language security operations through AI-powered investigation and response.
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Quick Start](#quick-start)
+- [Prerequisites](#prerequisites)
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Available Tools](#available-tools)
+- [Usage Examples](#usage-examples)
+- [FQL Tips](#fql-falcon-query-language-tips)
+- [Development](#development)
+- [Security](#security-considerations)
+- [Troubleshooting](#troubleshooting)
+- [Contributing](#contributing)
+- [License](#license)
 
 ## Overview
 
-This MCP server provides tools for interacting with CrowdStrike Falcon's security platform, enabling you to query detections, investigate incidents, manage devices, search for IOCs, and execute Real Time Response commands.
+This MCP server provides a natural language interface to CrowdStrike Falcon's security platform, enabling you to:
+
+- 🔍 Query and analyze security detections
+- 💻 Investigate devices and hosts in your environment
+- 🚨 Search and triage security incidents
+- 🔎 Hunt for Indicators of Compromise (IOCs)
+- ⚡ Execute Real Time Response commands for live investigation
 
 ## Features
 
@@ -13,6 +40,23 @@ This MCP server provides tools for interacting with CrowdStrike Falcon's securit
 - **Incident Investigation**: Search and analyze security incidents
 - **IOC Search**: Search for Indicators of Compromise
 - **Real Time Response**: Execute RTR commands on devices for live investigation
+
+## Quick Start
+
+```bash
+# Clone and install
+git clone https://github.com/Prank1004/crowdstrike-falcon-mcp.git
+cd crowdstrike-falcon-mcp
+npm install
+
+# Configure credentials (get these from CrowdStrike console)
+export FALCON_CLIENT_ID="your-client-id"
+export FALCON_CLIENT_SECRET="your-client-secret"
+export FALCON_BASE_URL="https://api.crowdstrike.com"  # or your region
+
+# Add to Claude Desktop config
+# See Configuration section below for detailed setup
+```
 
 ## Prerequisites
 
@@ -219,12 +263,50 @@ Execute a Real Time Response command on a device.
 
 Once configured with Claude, you can use natural language to interact with CrowdStrike Falcon:
 
-- "Show me all new detections from the last 24 hours"
-- "Get details about detection ID ldt:abc123"
-- "List all Windows servers in my environment"
-- "Find all incidents with critical severity"
-- "Search for IOCs related to domain example.com"
-- "Run 'ps' command on device abc123def to see running processes"
+### Detection Investigation
+```
+You: "Show me all new high-severity detections from the last 24 hours"
+Claude: [Uses falcon_get_detections with appropriate filters]
+
+You: "Get the full details on detection ID ldt:abc123xyz"
+Claude: [Uses falcon_get_detection_details to show complete detection info]
+```
+
+### Device Management
+```
+You: "List all Windows servers in my production environment"
+Claude: [Uses falcon_query_devices with platform and hostname filters]
+
+You: "Show me details for device ID def456abc"
+Claude: [Uses falcon_get_device_details with the specified ID]
+```
+
+### Incident Response
+```
+You: "Find all critical severity incidents that are still open"
+Claude: [Uses falcon_query_incidents with severity and status filters]
+
+You: "Show me the timeline for incident INC12345"
+Claude: [Uses falcon_get_incident_details to retrieve incident information]
+```
+
+### Threat Hunting
+```
+You: "Search for any IOCs related to the domain malicious-site.com"
+Claude: [Uses falcon_search_iocs to find related indicators]
+
+You: "Check if we have any detections for SHA256 hash abc123..."
+Claude: [Searches IOCs and correlates with detections]
+```
+
+### Real Time Response
+```
+You: "Run 'ps' on device abc123 to see what processes are running"
+Claude: [Uses falcon_run_rtr_command to execute command and show results]
+
+You: "List the contents of /tmp directory on that suspicious Linux host"
+Claude: [Executes 'ls /tmp' via RTR on the specified device]
+```
 
 ## FQL (Falcon Query Language) Tips
 

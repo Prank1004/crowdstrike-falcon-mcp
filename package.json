@@ -1,24 +1,44 @@
 {
   "name": "crowdstrike-falcon-mcp",
   "version": "1.0.0",
-  "description": "MCP server for CrowdStrike Falcon API integration",
+  "description": "Model Context Protocol server for CrowdStrike Falcon API - AI-powered security operations and incident response",
   "type": "module",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "bin": {
     "crowdstrike-falcon-mcp": "dist/index.js"
   },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CONTRIBUTING.md"
+  ],
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "clean": "rm -rf dist"
   },
   "keywords": [
     "mcp",
+    "model-context-protocol",
     "crowdstrike",
     "falcon",
     "security",
-    "model-context-protocol"
+    "cybersecurity",
+    "threat-detection",
+    "incident-response",
+    "security-operations",
+    "soc",
+    "edr",
+    "threat-hunting",
+    "claude",
+    "ai"
   ],
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "author": "Prank1004",
   "license": "MIT",
   "repository": {

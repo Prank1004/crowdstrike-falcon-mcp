@@ -1,0 +1,47 @@
+# Source files (only ship compiled code)
+src/
+tsconfig.json
+
+# Development files
+*.tsbuildinfo
+.env
+.env.*
+!.env.example
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Test files
+test/
+*.test.ts
+*.spec.ts
+
+# CI/CD
+.github/
+.travis.yml
+.circleci/
+
+# Documentation (keep README, LICENSE, CONTRIBUTING)
+docs/
+examples/
+
+# Config files
+config.json
+claude_desktop_config.example.json

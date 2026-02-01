@@ -1,1 +1,1 @@
-# myProject
+# crowdstrike-falcon-mcp

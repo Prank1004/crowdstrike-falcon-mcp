@@ -1,0 +1,31 @@
+{
+  "name": "crowdstrike-falcon-mcp",
+  "version": "1.0.0",
+  "description": "MCP server for CrowdStrike Falcon API integration",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "crowdstrike-falcon-mcp": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "mcp",
+    "crowdstrike",
+    "falcon",
+    "security",
+    "model-context-protocol"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.5",
+    "typescript": "^5.7.2"
+  }
+}
